@@ -21,8 +21,6 @@ const todos = [
     }
 ]
 
-const todoDiv = document.querySelector('#todos')
-
 const filters = {
     searchText: ''
 }
@@ -52,12 +50,15 @@ const renderTodos = function (todos, filters) {
 renderTodos(todos, filters)
 
 
-document.querySelector('.addTodo').addEventListener('click', function () {
-    console.log('I was clicked!')
-})
-
 document.querySelector('#todoSearch').addEventListener('input', function (e) {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
 
+document.querySelector('#addTodoForm').addEventListener('submit', function (e) {
+    e.preventDefault()
+    let todo = e.target.elements.addTodo.value
+    todos.push({text: todo, completed: false})
+    renderTodos(todos, filters)
+    e.target.elements.addTodo.value = ''
+})

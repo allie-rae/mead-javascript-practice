@@ -60,3 +60,4 @@ document.querySelector('#todoSearch').addEventListener('input', function (e) {
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
+

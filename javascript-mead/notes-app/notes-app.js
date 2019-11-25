@@ -45,3 +45,9 @@ document.querySelector('#noteInput').addEventListener('input', function (e) {
     filters.searchText = e.target.value
     renderNotes(notes, filters)
 })
+
+document.querySelector('#nameForm').addEventListener('submit', function (e) {
+    e.preventDefault()
+    console.log(e.target.elements.firstName.value)
+    e.target.elements.firstName.value = ''
+})

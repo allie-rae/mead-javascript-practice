@@ -46,8 +46,6 @@ document.querySelector('#noteInput').addEventListener('input', function (e) {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#nameForm').addEventListener('submit', function (e) {
-    e.preventDefault()
-    console.log(e.target.elements.firstName.value)
-    e.target.elements.firstName.value = ''
+document.querySelector('#forFun').addEventListener('change', function (e) {
+    console.log(e.target.checked)
 })

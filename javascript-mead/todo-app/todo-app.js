@@ -57,8 +57,10 @@ document.querySelector('#todoSearch').addEventListener('input', function (e) {
 
 document.querySelector('#addTodoForm').addEventListener('submit', function (e) {
     e.preventDefault()
-    let todo = e.target.elements.addTodo.value
-    todos.push({text: todo, completed: false})
+    todos.push({
+        text: e.target.elements.addTodo.value,
+        completed: false
+    })
     renderTodos(todos, filters)
     e.target.elements.addTodo.value = ''
 })

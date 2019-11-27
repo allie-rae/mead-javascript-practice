@@ -30,7 +30,7 @@ const generateTodoDOM = function (todo) {
 const generalSummaryDOM = function (todosRemaining) {
     const summary = document.createElement('h2')
     summary.textContent = `You have ${todosRemaining.length} things left to do.`
-    return document.querySelector('#todos').appendChild(summary)
+    return summary
 }
 
 
@@ -40,6 +40,7 @@ const renderTodos = function (todos, filters) {
     const filteredTodos = todos.filter(function (todo) {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
+        
         return searchTextMatch && hideCompletedMatch
     })
 
@@ -48,11 +49,11 @@ const renderTodos = function (todos, filters) {
     })
 
     document.querySelector('#todos').innerHTML = ''
+    document.querySelector('#todos').appendChild(generalSummaryDOM(todosRemaining))
 
     generalSummaryDOM(todosRemaining)
     
     filteredTodos.forEach(function (todo) {
-        const todoElement = generateTodoDOM(todo)
-        document.querySelector('#todos').appendChild(todoElement)
+        document.querySelector('#todos').appendChild(generateTodoDOM(todo))
     })
 }

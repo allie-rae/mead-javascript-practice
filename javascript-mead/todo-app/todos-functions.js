@@ -20,15 +20,23 @@ const saveTodo = function () {
 // Generate DOM structure for todo
 
 const generateTodoDOM = function (todo) {
+    // Setup wrapper
     const todoElement = document.createElement('div')
-    const todoText = document.createElement('span')
     const todoCheckbox = document.createElement('input')
+    const todoText = document.createElement('span')
+    const removeButton = document.createElement('button')
+
+    // Setup checkbox
     todoCheckbox.setAttribute('type', 'checkbox')
-
-    todoText.textContent = todo.text
-
     todoElement.appendChild(todoCheckbox)
+
+    // Setup todo text
+    todoText.textContent = todo.text
     todoElement.appendChild(todoText)
+
+    // Setup remove button 
+    removeButton.textContent = 'x'
+    todoElement.appendChild(removeButton)
 
     return todoElement
 }

@@ -29,6 +29,20 @@ const removeTodo = function (id) {
     }
 }
 
+const toggleTodo = function (id) {
+    const todo = todos.find(function (todo) {
+        return todo.id === id
+    })
+
+    if (todo !== undefined) {
+        todo.completed = !todo.completed
+    }
+}
+
+// 1. Add event handler to checkbox 
+// 2. Modify the correct objects completed property -> toggleTodo
+// 3. Save and rerender
+
 // Generate DOM structure for todo
 
 const generateTodoDOM = function (todo) {
@@ -40,7 +54,14 @@ const generateTodoDOM = function (todo) {
 
     // Setup checkbox
     todoCheckbox.setAttribute('type', 'checkbox')
+    todoCheckbox.checked = todo.completed
     todoElement.appendChild(todoCheckbox)
+
+    todoCheckbox.addEventListener('change', function (id) {
+            toggleTodo(todo.id)
+            saveTodo(todos)
+            renderTodos(todos, filters)   
+})
 
     // Setup todo text
     todoText.textContent = todo.text

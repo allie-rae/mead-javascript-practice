@@ -45,3 +45,7 @@ document.querySelector('#noteInput').addEventListener('input', function (e) {
 document.querySelector('#filterBy').addEventListener('change', function (e) {
     console.log(e.target.value)
 })
+
+window.addEventListener('storage', function (e) {
+    
+})

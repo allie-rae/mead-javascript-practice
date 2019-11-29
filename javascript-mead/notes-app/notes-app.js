@@ -47,5 +47,6 @@ document.querySelector('#filterBy').addEventListener('change', function (e) {
 })
 
 window.addEventListener('storage', function (e) {
-    
+    notes = JSON.parse(e.newValue)
+    renderNotes(notes, filters)
 })

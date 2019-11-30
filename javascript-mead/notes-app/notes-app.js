@@ -50,3 +50,33 @@ window.addEventListener('storage', function (e) {
     notes = JSON.parse(e.newValue)
     renderNotes(notes, filters)
 })
+
+const now = new Date()
+console.log(now.toString())
+
+console.log(`Year: ${now.getFullYear()}`)
+console.log(`Month: ${now.getMonth()}`)
+console.log(`Day: ${now.getDate()}`)
+console.log(`Hour: ${now.getHours()}`)
+console.log(`Minutes: ${now.getMinutes()}`)
+console.log(`Seconds: ${now.getSeconds()}`)
+
+const past1 = new Date('February 2 1993 1:25:51')
+const past2 = new Date('January 2 1987 3:40:40')
+
+timestamp1 = past1.getTime()
+timestamp2 = past2.getTime()
+
+console.log("timestamp1", timestamp1)
+console.log("timestamp2", timestamp2)
+
+const whichIsSmaller = function (time1, time2) {
+    if (time1 < time2) {
+        return time1.toString()
+    } else {
+        return time2.toString()
+    }
+}
+
+console.log("whichIsSmaller", whichIsSmaller(timestamp1, timestamp2))
+
